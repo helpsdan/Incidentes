@@ -1,3 +1,13 @@
 <resources>
     <string name="app_name">Incidentes</string>
+    <string name="selecione_um_servi_o_a_ser_utilizado">Selecione um serviço a ser utilizado:</string>
+    <string name="cadastrar_atendente">Cadastrar Atendente</string>
+    <string name="cadastrar_cliente">Cadastrar Cliente</string>
+    <string name="cadastrar_incidente">Cadastrar Incidente</string>
+    <string name="listar_incidentes">Listar Incidentes</string>
+    <string name="nome_do_atendente">Nome do Atendente:</string>
+    <string name="cadastrar_atendente1">Cadastrar Atendente</string>
+    <string name="cadastrar_cliente1">Cadastrar Cliente</string>
+    <string name="nome_do_cliente">Nome do Cliente</string>
+    <string name="empresa_do_cliente">Empresa do Cliente</string>
 </resources>

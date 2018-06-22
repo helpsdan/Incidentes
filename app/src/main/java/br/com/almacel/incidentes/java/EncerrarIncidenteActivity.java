@@ -5,11 +5,11 @@ import android.os.Bundle;
 
 import br.com.almacel.incidentes.R;
 
-public class EncerrarIncidentesActivity extends AppCompatActivity {
+public class EncerrarIncidenteActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_encerrar_incidentes);
+        setContentView(R.layout.activity_encerrar_incidente);
     }
 }
