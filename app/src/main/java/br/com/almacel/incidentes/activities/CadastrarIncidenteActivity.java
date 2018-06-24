@@ -1,4 +1,4 @@
-package br.com.almacel.incidentes.java;
+package br.com.almacel.incidentes.activities;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;

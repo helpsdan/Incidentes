@@ -10,4 +10,6 @@
     <string name="cadastrar_cliente1">Cadastrar Cliente</string>
     <string name="nome_do_cliente">Nome do Cliente</string>
     <string name="empresa_do_cliente">Empresa do Cliente</string>
+    <string name="id_do_atendente">Id do Atendente:</string>
+    <string name="id_do_cliente">Id do Cliente</string>
 </resources>

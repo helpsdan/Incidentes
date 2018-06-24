@@ -10,35 +10,44 @@
     android:id="@+id/Inser">
 
     <TextView
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="@string/id_do_atendente"
+        android:id="@+id/textView1"
+        android:layout_marginTop="@dimen/margin_top"
+        android:textColor="@color/text_color_inicio"/>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/edtIdAtendente"
+        android:layout_below="@+id/textView1"
+        android:layout_alignParentEnd="true" />
+
+    <TextView
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:text="@string/nome_do_atendente"
         android:id="@+id/textView"
-        android:layout_marginTop="@dimen/margin_top"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
+        android:layout_below="@+id/edtIdAtendente"
         android:textColor="@color/text_color_inicio"/>
 
     <EditText
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/editText"
+        android:id="@+id/edtNomeAtendente"
         android:layout_below="@+id/textView"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true" />
+
 
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/cadastrar_atendente1"
-        android:id="@+id/button"
-        android:layout_below="@+id/editText"
-        android:layout_alignRight="@+id/editText"
-        android:layout_alignEnd="@+id/editText"
+        android:id="@+id/btnCadAtendente"
+        android:layout_below="@+id/edtNomeAtendente"
         android:layout_marginTop="@dimen/margin_top1"
         android:onClick="CadastrarAtendente"
         android:textColor="@color/text_color_inicio"/>
