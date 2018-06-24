@@ -12,4 +12,12 @@
     <string name="empresa_do_cliente">Empresa do Cliente</string>
     <string name="id_do_atendente">Id do Atendente:</string>
     <string name="id_do_cliente">Id do Cliente</string>
+    <string name="finalizado">Finalizado</string>
+    <string name="aberto">Aberto</string>
+    <string name="cad_incidente">Cadastrar Incidente</string>
+    <string name="status">Status</string>
+    <string name="descri_o_do_incidente">Descrição do Incidente</string>
+    <string name="nome_do_cliente111">Nome do Cliente</string>
+    <string name="nome_do_atendente111">Nome do Atendente</string>
+    <string name="id_do_incidente">Id do Incidente</string>
 </resources>

@@ -6,6 +6,9 @@ import android.content.Intent;
         import android.view.View;
 
         import br.com.almacel.incidentes.R;
+import br.com.almacel.incidentes.crud.Create;
+import br.com.almacel.incidentes.crud.Delete;
+import br.com.almacel.incidentes.crud.Update;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -13,6 +16,41 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        Delete d = new Delete(getApplicationContext());
+        if(d.deleteTables() == true){
+            System.out.println("*************** TABELAS DELETADAS COM SUCESSO ***************");
+        }else{
+            System.out.println("*************** ERRO AO DELETAR TABELAS ***************");
+        }
+        Create c = new Create(getApplicationContext());
+        if(c.createTableAtendente() == true){
+            System.out.println("*************** TABELA ATENDENTE CRIADA COM SUCESSO ***************");
+        }else{
+            System.out.println("*************** ERRO AO CRIAR TABELA ATENDENTE ***************");
+        }
+        if(c.createTableCliente() == true){
+            System.out.println("*************** TABELA CLIENTE CRIADA COM SUCESSO ***************");
+        }else{
+            System.out.println("*************** ERRO AO CRIAR TABELA CLIENTE ***************");
+        }
+        if(c.createTableIncidente()==true){
+            System.out.println("*************** TABELA INCIDENTE CRIADA COM SUCESSO ***************");
+        }else{
+            System.out.println("*************** ERRO AO CRIAR TABELA INCIDENTE ***************");
+        }
+        Update up = new Update(getApplicationContext());
+        if(up.insertInAtendente()==true){
+            System.out.println("******* INSERINDO ATENDENTE *******");
+        }else{
+            System.out.println("******* ERRO AO INSERIR ANTEDENTE *******");
+        }
+        if (up.insertInCliente()==true){
+            System.out.println("******* INSERINDO CLIENTE *******");
+        }else{
+            System.out.println("******* ERRO AO INSERIR CLIENTE *******");
+        }
+
+
     }
 
     public void AbrirCadastrarAtendente(View view) {

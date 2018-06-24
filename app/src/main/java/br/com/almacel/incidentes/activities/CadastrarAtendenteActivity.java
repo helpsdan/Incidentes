@@ -29,15 +29,6 @@ public class CadastrarAtendenteActivity extends AppCompatActivity implements Vie
 
 
     public void CadastrarAtendente(View view) {
-       /* Atendente atendente = new Atendente();
-        atendente.setId(Integer.parseInt(edtIdAtendente.getText().toString()));
-        atendente.setNome(edtNomeAtendente.getText().toString());
-        Update up = new Update(getApplicationContext());
-        if (up.insertAtendente(atendente)){
-            Toast.makeText(this, "O antendente foi inserido com sucesso", Toast.LENGTH_LONG).show();
-        } else {
-            Toast.makeText(this, "Erro ao inserir atendente", Toast.LENGTH_LONG).show();
-        }*/
     }
 
     @Override

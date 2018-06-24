@@ -8,16 +8,16 @@ public class Create extends SQLiteOpenHelper{
 
 
     /*Nome do banco*/
-    public static final String NOME_DB = "incidentes_db";
+    public static final String NOME_DB = "incidentes.db";
 
     /*Versão do banco*/
     public static final int VERSAO_DB = 1;
 
-    /*Path DB*/
-    public static final String PATH_DB = "/data/user/0/br.com.almacel.incidentes/database/incidentes_db";
-
     /*Context*/
     public Context nContext;
+
+    /*Path DB*/
+    public static final String PATH_DB = "/data/user/0/br.com.almacel.incidentes/database/incidentes.db";
 
     /*Instância do Banco de Dados*/
     public SQLiteDatabase db;
@@ -38,19 +38,44 @@ public class Create extends SQLiteOpenHelper{
 
     }
 
-    public boolean createTables(){
+    public boolean createTableAtendente(){
         openDB();
         String createTableAtendente = "CREATE TABLE IF NOT EXISTS " + PostContract.PostEntry.ATENDENTE+ " ("
                 + "ID INTEGER,"
                 + "NOME TEXT,"
                 + "PRIMARY KEY ('ID')"
                 + ")";
+        try {
+            db.execSQL(createTableAtendente);
+            return true;
+        }catch (Exception e){
+            e.printStackTrace();
+            return false;
+        }finally {
+            db.close();
+        }
+    }
+
+    public boolean createTableCliente(){
+        openDB();
         String createTableCliente = "CREATE TABLE IF NOT EXISTS " + PostContract.PostEntry.CLIENTE+ " ("
-                + "ID INTEGER,"
-                + "NOME TEXT,"
+                + "ID INTEGER  ,"
+                + "NOME TEXT ,"
                 + "EMPRESA TEXT,"
                 + "PRIMARY KEY ('ID')"
                 + ")";
+        try {
+            db.execSQL(createTableCliente);
+            return true;
+        }catch (Exception e){
+            e.printStackTrace();
+            return false;
+        }finally {
+            db.close();
+        }
+    }
+    public boolean createTableIncidente(){
+        openDB();
         String createTableIncidente = "CREATE TABLE IF NOT EXISTS " + PostContract.PostEntry.INCIDENTE+ " ("
                 + "ID INTEGER,"
                 + "ATENDENTE INTEGER,"
@@ -59,12 +84,10 @@ public class Create extends SQLiteOpenHelper{
                 + "STATUS TEXT,"
                 + "CREATION_TIME TEXT,"
                 + "PRIMARY KEY ('ID'),"
-                + "CONSTRAINT `fk_atendente` FOREIGN KEY (`ATENDENTE`) REFERENCES '"+ PostContract.PostEntry.ATENDENTE+"' (`ID`) ON DELETE NO ACTION ON UPDATE NO ACTION,"
-                + "CONSTRAINT `fk_cliente` FOREIGN KEY (`CLIENTE`) REFERENCES '"+ PostContract.PostEntry.CLIENTE+"' (`ID`) ON DELETE NO ACTION ON UPDATE NO ACTION"
+                + "CONSTRAINT `fk_atendente` FOREIGN KEY (`ATENDENTE`) REFERENCES '"+ PostContract.PostEntry.ATENDENTE+"' (`ID`),"
+                + "CONSTRAINT `fk_cliente` FOREIGN KEY (`CLIENTE`) REFERENCES '"+ PostContract.PostEntry.CLIENTE+"' (`ID`)"
                 + ") ";
         try {
-            db.execSQL(createTableAtendente);
-            db.execSQL(createTableCliente);
             db.execSQL(createTableIncidente);
             return true;
         }catch (Exception e){
@@ -73,7 +96,6 @@ public class Create extends SQLiteOpenHelper{
         }finally {
             db.close();
         }
-
     }
 
     private void openDB(){

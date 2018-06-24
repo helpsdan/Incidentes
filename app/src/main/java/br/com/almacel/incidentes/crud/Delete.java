@@ -56,6 +56,22 @@ public class Delete extends SQLiteOpenHelper{
         }
     }
 
+    public boolean encerrarIncidente(){
+        openDB();
+        String encerrarIncidente = "UPDATE "+ PostContract.PostEntry.INCIDENTE+" SET STATUS = 'FINALIZADO'";
+        try{
+            db.execSQL(encerrarIncidente);
+            return true;
+        }catch (Exception e){
+            e.printStackTrace();
+            return false;
+        }finally {
+            db.close();
+        }
+    }
+
+
+
     private void openDB(){
         if (!db.isOpen()){
             db = nContext.openOrCreateDatabase(PATH_DB, SQLiteDatabase.OPEN_READWRITE, null);

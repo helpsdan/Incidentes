@@ -60,23 +60,6 @@ public class Update extends SQLiteOpenHelper{
 
     }
 
-    public boolean updateAtendente(Atendente atendente){
-        openDB();
-        try {
-            String where = "NOME = '"+atendente.getNome()+"'";
-            ContentValues values = new ContentValues();
-            values.put("ID", atendente.getId());
-            values.put("NOME", atendente.getNome());
-            db.update(PostContract.PostEntry.ATENDENTE, values, where,null);
-            return true;
-        }catch (Exception e){
-            e.printStackTrace();
-            return false;
-        }finally {
-            db.close();
-        }
-
-    }
     public boolean insertCliente(Cliente cliente){
         openDB();
         try {
@@ -95,24 +78,6 @@ public class Update extends SQLiteOpenHelper{
 
     }
 
-    public boolean updateCliente(Cliente cliente){
-        openDB();
-        try {
-            String where = "NOME = '"+cliente.getNome()+"'";
-            ContentValues values = new ContentValues();
-            values.put("ID", cliente.getId());
-            values.put("NOME", cliente.getNome());
-            values.put("EMPRESA", cliente.getEmpresa());
-            db.update(PostContract.PostEntry.CLIENTE, values, where,null);
-            return true;
-        }catch (Exception e){
-            e.printStackTrace();
-            return false;
-        }finally {
-            db.close();
-        }
-
-    }
 
     public boolean insertIncidente(Incidente incidente){
         openDB();
@@ -134,29 +99,6 @@ public class Update extends SQLiteOpenHelper{
         }
 
     }
-
-    public boolean updateIncidente(Incidente incidente){
-        openDB();
-        try {
-            String where = "ID = '"+incidente.getId()+"'";
-            ContentValues values = new ContentValues();
-            values.put("ID", incidente.getId());
-            values.put("ATENDENTE", String.valueOf(incidente.getAtendente()));
-            values.put("CLIENTE", String.valueOf(incidente.getCliente()));
-            values.put("DESCRICAO", incidente.getDescricao());
-            values.put("STATUS", String.valueOf(incidente.getStatus()));
-            values.put("CREATION_TIME", incidente.getCreationTime());
-            db.update(PostContract.PostEntry.INCIDENTE, values, where,null);
-            return true;
-        }catch (Exception e){
-            e.printStackTrace();
-            return false;
-        }finally {
-            db.close();
-        }
-
-    }
-
 
     private void openDB(){
         if (!db.isOpen()){

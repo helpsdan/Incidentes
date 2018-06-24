@@ -48,9 +48,10 @@ public class Read extends SQLiteOpenHelper{
     public List<Incidente> getIncidente(){
         openDB();
         ArrayList<Incidente> iArray = new ArrayList<>();
-        String getIncidentes = "SELECT * FROM " + PostContract.PostEntry.INCIDENTE;
+        String getIncidentesValidos = "SELECT * FROM " + PostContract.PostEntry.INCIDENTE + " WHERE STATUS = 'ABERTO'";
+
         try{
-            Cursor c = db.rawQuery(getIncidentes, null);
+            Cursor c = db.rawQuery(getIncidentesValidos, null);
             if (c.moveToFirst()){
                 do{
                     Incidente incidente = new Incidente();
@@ -72,6 +73,45 @@ public class Read extends SQLiteOpenHelper{
         }
         return iArray;
     }
+
+    public int getIdAtendente(String nome){
+        openDB();
+        int id = 0;
+        String searchAtendente = "SELECT ID FROM "+ PostContract.PostEntry.ATENDENTE+" WHERE NOME = '" + nome + "'";
+        try{
+            Cursor c = db.rawQuery(searchAtendente, null);
+            if (c.moveToFirst()){
+                id = c.getInt(0);
+            }
+            c.close();
+        }catch (Exception e){
+            e.printStackTrace();
+            return 0;
+        }finally {
+           db.close();
+        }
+        return id;
+    }
+
+    public int getIdCliente(String nome){
+        openDB();
+        int id = 0;
+        String searchAtendente = "SELECT ID FROM "+ PostContract.PostEntry.CLIENTE+" WHERE NOME = '" + nome + "'";
+        try{
+            Cursor c = db.rawQuery(searchAtendente, null);
+            if (c.moveToFirst()){
+                id = c.getInt(0);
+            }
+            c.close();
+        }catch (Exception e){
+            e.printStackTrace();
+            return 0;
+        }finally {
+            db.close();
+        }
+        return id;
+    }
+
 
     private void openDB(){
         if (!db.isOpen()){

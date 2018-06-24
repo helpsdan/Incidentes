@@ -9,13 +9,13 @@ public class PostContract {
     private PostContract(){};
 
     public static class PostEntry implements BaseColumns{
-        /*Tabela Atendentes*/
+        /*Tabela Atendente*/
         public static final String ATENDENTE = "ATENDENTE";
 
-        /*Tabela Clientes*/
+        /*Tabela Cliente*/
         public static final String CLIENTE = "CLIENTE";
 
-        /*Tabela Incidentes*/
+        /*Tabela Incidente*/
         public static final String INCIDENTE = "INCIDENTE";
 
 
