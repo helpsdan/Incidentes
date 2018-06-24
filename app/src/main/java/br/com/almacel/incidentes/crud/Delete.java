@@ -4,6 +4,10 @@ import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
+/**
+ * @author Daniel Aguiar
+ * Classe que faz a manipulação dos dados no banco de dados(DROP)
+ */
 public class Delete extends SQLiteOpenHelper{
 
 
@@ -22,22 +26,40 @@ public class Delete extends SQLiteOpenHelper{
     /*Instância do Banco de Dados*/
     public SQLiteDatabase db;
 
+    /**
+     * Contrutor publico
+     * @param context recebe o contexto da aplicação
+     */
     public Delete(Context context) {
         super(context, NOME_DB, null, VERSAO_DB);
         this.nContext = context;
         db = getWritableDatabase();
     }
 
+    /**
+     * Método herdaddo da classe SQLiteOpenHelper
+     * @param db instancia do banco de dados.
+     */
     @Override
     public void onCreate(SQLiteDatabase db) {
 
     }
 
+    /**
+     * Método herdaddo da classe SQLiteOpenHelper
+     * @param db instnacia do banco de dados.
+     * @param oldVersion versao anterior do banco de dados.
+     * @param newVersion nova versao do banco de dados.
+     */
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
 
     }
 
+    /**
+     * Método para deletar as tabelas na inicialização do aplicativo para que sejam inseridos novos registros.
+     * @return retorno true ou false para saber se a query foi executada com sucesso ou não.
+     */
     public boolean deleteTables(){
         openDB();
         String deleteTableAtendente = "DROP TABLE IF EXISTS " + PostContract.PostEntry.ATENDENTE;
@@ -56,6 +78,10 @@ public class Delete extends SQLiteOpenHelper{
         }
     }
 
+    /**
+     * Método criado para encerrar os incidentes
+     * @return retorno true ou false para saber se a query foi excutada com sucesso ou não.
+     */
     public boolean encerrarIncidente(){
         openDB();
         String encerrarIncidente = "UPDATE "+ PostContract.PostEntry.INCIDENTE+" SET STATUS = 'FINALIZADO'";
@@ -70,8 +96,9 @@ public class Delete extends SQLiteOpenHelper{
         }
     }
 
-
-
+    /**
+     * Método para abrir a conexão com o banco de dados.
+     */
     private void openDB(){
         if (!db.isOpen()){
             db = nContext.openOrCreateDatabase(PATH_DB, SQLiteDatabase.OPEN_READWRITE, null);

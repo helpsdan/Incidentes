@@ -18,7 +18,6 @@
         </activity>
         <activity android:name=".activities.ListarIncidentesActivity" />
         <activity android:name=".activities.CadastrarAtendenteActivity" />
-        <activity android:name=".activities.EncerrarIncidenteActivity" />
         <activity android:name=".activities.CadastrarIncidenteActivity" />
         <activity android:name=".activities.CadastrarClienteActivity"></activity>
     </application>

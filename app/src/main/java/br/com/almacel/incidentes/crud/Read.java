@@ -11,6 +11,10 @@ import java.util.List;
 import br.com.almacel.incidentes.bean.Incidente;
 import br.com.almacel.incidentes.bean.Status;
 
+/**
+ * @author Daniel Aguiar
+ * Classe que faz a pesquisa dos dados no banco de dados (SELECT)
+ */
 public class Read extends SQLiteOpenHelper{
 
 
@@ -29,17 +33,31 @@ public class Read extends SQLiteOpenHelper{
     /*Instância do Banco de Dados*/
     public SQLiteDatabase db;
 
+    /**
+     * Construtor publico
+      * @param context recebe o contexto da aplicação
+     */
     public Read(Context context) {
         super(context, NOME_DB, null, VERSAO_DB);
         this.nContext = context;
         db = getReadableDatabase();
     }
 
+    /**
+     * Método herdaddo da classe SQLiteOpenHelper
+     * @param db instancia do banco de dados
+     */
     @Override
     public void onCreate(SQLiteDatabase db) {
 
     }
 
+    /**
+     * Método herdaddo da classe SQLiteOpenHelper
+     * @param db instancia do banco de dados.
+     * @param oldVersion versão anterior do banco de dados.
+     * @param newVersion nova versão do banco de dados.
+     */
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
 

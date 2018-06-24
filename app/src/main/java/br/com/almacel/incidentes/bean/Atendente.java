@@ -1,12 +1,15 @@
 package br.com.almacel.incidentes.bean;
 
+/**
+ * @author Daniel Aguiar
+ * Classe que representa o objeto Atendente
+ */
 public class Atendente {
 
+    /**
+     * Contrutor público sem parâmetros.
+     */
     public Atendente(){}
-
-    public Atendente(String nome){
-        this.nome = nome;
-    }
 
     private int id;
     private String nome;

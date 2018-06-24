@@ -1,7 +1,13 @@
 package br.com.almacel.incidentes.bean;
 
+/**
+ * @author Daniel Aguiar
+ * Classe que representa o objeto Cliente
+ */
 public class Incidente {
-
+    /**
+     * Contrutor público sem parâmetros.
+     */
     public Incidente(){}
 
     private int id;

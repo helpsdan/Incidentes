@@ -13,6 +13,10 @@ import br.com.almacel.incidentes.bean.Atendente;
 import br.com.almacel.incidentes.bean.Cliente;
 import br.com.almacel.incidentes.crud.Update;
 
+/**
+ * @author Daniel Aguiar
+ * Classe responsável pela manipulação da View "activity_cadastrar_cliente.xml"
+ */
 public class CadastrarClienteActivity extends AppCompatActivity implements View.OnClickListener{
 
     EditText edtIdCliente;
@@ -20,6 +24,9 @@ public class CadastrarClienteActivity extends AppCompatActivity implements View.
     EditText edtEmpresaCliente;
     Button btnCadCliente;
 
+    /**
+     * Método para inicialização de componentes da View.
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -31,7 +38,10 @@ public class CadastrarClienteActivity extends AppCompatActivity implements View.
         btnCadCliente.setOnClickListener(this);
     }
 
-
+    /**
+     * @param view view
+     * Método do clique do botão
+     */
     public void CadastrarCliente(View view) {
 
     }

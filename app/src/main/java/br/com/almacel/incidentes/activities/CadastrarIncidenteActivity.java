@@ -17,6 +17,10 @@ import br.com.almacel.incidentes.bean.Status;
 import br.com.almacel.incidentes.crud.Read;
 import br.com.almacel.incidentes.crud.Update;
 
+/**
+ * @author Daniel Aguiar
+ * Classe responsável pela manipulação da View "activity_cadastrar_incidente.xml"
+ */
 public class CadastrarIncidenteActivity extends AppCompatActivity implements View.OnClickListener{
 
     Button btnCadIncidente;
@@ -38,9 +42,16 @@ public class CadastrarIncidenteActivity extends AppCompatActivity implements Vie
         btnCadIncidente = findViewById(R.id.btnCadIncidente);
         btnCadIncidente.setOnClickListener(this);
     }
+    /**
+     * @param view view
+     * Método do clique do botão
+     */
     public void CadastrarIncidente(View view) {
     }
-
+    /**
+     * @param v view
+     * Método do clique do botão
+     */
     @Override
     public void onClick(View v) {
         int idAtendente;

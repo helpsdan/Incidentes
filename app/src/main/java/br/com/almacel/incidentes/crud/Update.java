@@ -9,6 +9,10 @@ import br.com.almacel.incidentes.bean.Atendente;
 import br.com.almacel.incidentes.bean.Cliente;
 import br.com.almacel.incidentes.bean.Incidente;
 
+/**
+ * @author Daniel Aguiar
+ * Classe que faz a manipulação dos dados no banco de dados (INSERT)
+ */
 public class Update extends SQLiteOpenHelper{
 
 
@@ -27,22 +31,42 @@ public class Update extends SQLiteOpenHelper{
     /*Instância do Banco de Dados*/
     public SQLiteDatabase db;
 
+    /**
+     *  Contrutor publico
+     * @param context CONTEXTO da aplicação
+     */
     public Update(Context context) {
         super(context, NOME_DB, null, VERSAO_DB);
         this.nContext = context;
         db = getWritableDatabase();
     }
 
+    /**
+     * Método herdaddo da classe SQLiteOpenHelper
+     * @param db instancia do banco de dados.
+     */
     @Override
     public void onCreate(SQLiteDatabase db) {
 
     }
+
+    /**
+     * Método herdaddo da classe SQLiteOpenHelper
+     * @param db instancia do banco de dados.
+     * @param oldVersion versão anterior do banco de dados.
+     * @param newVersion nova versão do banco de dados.
+     */
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
 
     }
 
+    /**
+     *
+     * @param atendente Atendente que será inserido
+     * @return retorno true ou false para determinar se a query foi executada ou não.
+     */
     public boolean insertAtendente(Atendente atendente){
         openDB();
         try {
@@ -59,7 +83,11 @@ public class Update extends SQLiteOpenHelper{
         }
 
     }
-
+    /**
+     *
+     * @param cliente Atendente que será inserido
+     * @return retorno true ou false para determinar se a query foi executada ou não.
+     */
     public boolean insertCliente(Cliente cliente){
         openDB();
         try {
@@ -78,7 +106,11 @@ public class Update extends SQLiteOpenHelper{
 
     }
 
-
+    /**
+     *
+     * @param incidente Atendente que será inserido
+     * @return retorno true ou false para determinar se a query foi executada ou não.
+     */
     public boolean insertIncidente(Incidente incidente){
         openDB();
         try {
@@ -100,6 +132,9 @@ public class Update extends SQLiteOpenHelper{
 
     }
 
+    /**
+     * Método para abrir o banco de dados, presente em todos os métodos anteriores.
+     */
     private void openDB(){
         if (!db.isOpen()){
             db = nContext.openOrCreateDatabase(PATH_DB, SQLiteDatabase.OPEN_READWRITE, null);

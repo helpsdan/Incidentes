@@ -9,9 +9,16 @@ import android.content.Intent;
 import br.com.almacel.incidentes.crud.Create;
 import br.com.almacel.incidentes.crud.Delete;
 import br.com.almacel.incidentes.crud.Update;
-
+/**
+ * @author Daniel Aguiar
+ * Classe responsável pela manipulação da View "activity_main.xml"
+ */
 public class MainActivity extends AppCompatActivity {
 
+    /**
+     * Método para inicialização de componentes da View.
+     * Faz também a validação da criação do banco de dados SQlite.
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,36 +45,41 @@ public class MainActivity extends AppCompatActivity {
         }else{
             System.out.println("*************** ERRO AO CRIAR TABELA INCIDENTE ***************");
         }
-        Update up = new Update(getApplicationContext());
-        if(up.insertInAtendente()==true){
-            System.out.println("******* INSERINDO ATENDENTE *******");
-        }else{
-            System.out.println("******* ERRO AO INSERIR ANTEDENTE *******");
-        }
-        if (up.insertInCliente()==true){
-            System.out.println("******* INSERINDO CLIENTE *******");
-        }else{
-            System.out.println("******* ERRO AO INSERIR CLIENTE *******");
-        }
 
 
     }
-
+    /**
+     * @param view view
+     * Método do clique do botão
+     * Faz a alteração da View para a view selecionada.
+     */
     public void AbrirCadastrarAtendente(View view) {
         Intent it = new Intent(this, CadastrarAtendenteActivity.class);
         startActivity(it);
     }
-
+    /**
+     * @param view view
+     * Método do clique do botão
+     * Faz a alteração da View para a view selecionada.
+     */
     public void AbrirCadastrarCliente(View view) {
         Intent it = new Intent(this, CadastrarClienteActivity.class);
         startActivity(it);
     }
-
+    /**
+     * @param view view
+     * Método do clique do botão
+     * Faz a alteração da View para a view selecionada.
+     */
     public void AbrirCadastrarIncidente(View view) {
         Intent it = new Intent(this, CadastrarIncidenteActivity.class);
         startActivity(it);
     }
-
+    /**
+     * @param view view
+     * Método do clique do botão
+     * Faz a alteração da View para a view selecionada.
+     */
     public void AbrirListarIncidentes(View view) {
         Intent it = new Intent(this, ListarIncidentesActivity.class);
         startActivity(it);

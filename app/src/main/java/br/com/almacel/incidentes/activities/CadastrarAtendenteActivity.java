@@ -11,12 +11,19 @@ import br.com.almacel.incidentes.R;
 import br.com.almacel.incidentes.bean.Atendente;
 import br.com.almacel.incidentes.crud.Update;
 
+/**
+ * @author Daniel Aguiar
+ * Classe responsável pela manipulação da View "activity_cadastrar_atendente.xml"
+ */
 public class CadastrarAtendenteActivity extends AppCompatActivity implements View.OnClickListener{
 
     Button btnCadAtendente;
     EditText edtNomeAtendente;
     EditText edtIdAtendente;
 
+    /**
+     * Método para inicialização de componentes da View.
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -27,10 +34,18 @@ public class CadastrarAtendenteActivity extends AppCompatActivity implements Vie
         btnCadAtendente.setOnClickListener(this);
     }
 
-
+    /**
+     * @param view view
+     * Método do clique do botão
+     */
     public void CadastrarAtendente(View view) {
     }
 
+
+    /**
+     * @param v view
+     * Método do clique do botão
+     */
     @Override
     public void onClick(View v) {
         String nome = edtNomeAtendente.getText().toString();
